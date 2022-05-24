@@ -7,6 +7,7 @@ import About from './Pages/About/About';
 import Login from './Pages/Home/Login/Login';
 import SignUp from './Pages/Home/Login/SignUp';
 import Blogs from './Pages/Blogs/Blogs';
+import NotFound from './Pages/Home/NotFound/NotFound';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/blogs" element={<Blogs></Blogs>} />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<SignUp />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
 
     </div>

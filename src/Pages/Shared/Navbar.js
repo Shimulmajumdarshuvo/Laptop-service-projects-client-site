@@ -9,13 +9,15 @@ import auth from '../../firebase.init';
 const Navbar = () => {
     const [user, loading, error] = useAuthState(auth);
 
+
+
+
     const logout = () => {
         signOut(auth);
     };
 
     const menuItems = <>
         <li>< Link to="/">Home</Link></li>
-
         <li>< Link to="/review">Review</Link></li>
         <li>< Link to="/blogs">Blogs</Link></li>
         <li>< Link to="/about">About</Link></li>
@@ -24,7 +26,7 @@ const Navbar = () => {
     </>
     return (
         <div>
-            <div class="navbar bg-base-100">
+            <div class="navbar bg-base-100 sticky ">
                 <div class="navbar-start">
                     <div class="dropdown">
                         <label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -36,7 +38,8 @@ const Navbar = () => {
 
                         </ul>
                     </div>
-                    <a class="btn btn-ghost normal-case text-xl">Laptop Devices</a>
+                    <img className='mx-8 ' src="https://cdn3.vectorstock.com/i/thumb-large/63/87/laptop-computer-and-smartphone-in-silver-circle-vector-30146387.jpg" alt="" width={60} />
+                    <a class="btn btn-ghost normal-case text-xl">GreatTechMate</a>
                 </div>
                 <div class="navbar-center hidden lg:flex">
                     <ul class="menu menu-horizontal p-0">

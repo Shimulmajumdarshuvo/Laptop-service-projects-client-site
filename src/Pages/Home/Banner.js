@@ -5,16 +5,18 @@ const Banner = () => {
         <div>
             <div class="carousel w-full">
                 <div id="item1" class="carousel-item w-full">
-                    <img src="https://api.lorem.space/image/car?w=800&h=200&hash=8B7BCDC2" class="w-full" />
+                    <img src=" https://techwithtech.com/wp-content/uploads/featured_laptop_parts.jpg" class="h-96 w-full" />
                 </div>
                 <div id="item2" class="carousel-item w-full">
-                    <img src="https://api.lorem.space/image/car?w=800&h=200&hash=500B67FB" class="w-full" />
+                    <img src="http://cdn.shopify.com/s/files/1/0607/7697/2493/files/laptop-parts_1.jpg?v=1643886106" class="h-96 w-full" />
                 </div>
                 <div id="item3" class="carousel-item w-full">
-                    <img src="https://api.lorem.space/image/car?w=800&h=200&hash=A89D0DE6" class="w-full" />
+                    <img src="https://www.kindpng.com/picc/m/246-2460778_laptop-parts-and-accessories-hd-png-download.png" class="h-96 w-full" />
                 </div>
                 <div id="item4" class="carousel-item w-full">
-                    <img src="https://api.lorem.space/image/car?w=800&h=200&hash=225E6693" class="w-full" />
+                    <img src="https://techwithtech.com/wp-content/uploads/fan-on-a-laptop.jpeg" class="h-96 w-full" />
+
+
                 </div>
             </div>
             <div class="flex justify-center w-full py-2 gap-2">
