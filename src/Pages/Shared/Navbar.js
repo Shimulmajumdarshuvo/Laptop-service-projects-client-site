@@ -1,23 +1,25 @@
-// import { signOut } from 'firebase/auth';
+import { signOut } from 'firebase/auth';
 import React from 'react';
-// import { useAuthState } from 'react-firebase-hooks/auth';
+import { useAuthState } from 'react-firebase-hooks/auth';
+
 import { Link } from 'react-router-dom';
-// import auth from '../../../firebase.init';
+import auth from '../../firebase.init';
+
 
 const Navbar = () => {
-    // const [user, loading, error] = useAuthState(auth);
+    const [user, loading, error] = useAuthState(auth);
 
-    // const logout = () => {
-    //     signOut(auth);
-    // };
+    const logout = () => {
+        signOut(auth);
+    };
 
     const menuItems = <>
         <li>< Link to="/">Home</Link></li>
-        <li>< Link to="/appointment">Appointment</Link></li>
+
         <li>< Link to="/review">Review</Link></li>
-        <li>< Link to="/contact">Contact</Link></li>
+        <li>< Link to="/blogs">Blogs</Link></li>
         <li>< Link to="/about">About</Link></li>
-        {/* <li>{user ? <button onClick={logout} class="btn btn-ghost">Sign Out</button> : < Link to="/login">Login</Link>}</li> */}
+        <li>{user ? <button onClick={logout} class="btn btn-ghost">Sign Out</button> : < Link to="/login">Login</Link>}</li>
 
     </>
     return (
@@ -34,7 +36,7 @@ const Navbar = () => {
 
                         </ul>
                     </div>
-                    <a class="btn btn-ghost normal-case text-xl">Doctor's Portal</a>
+                    <a class="btn btn-ghost normal-case text-xl">Laptop Devices</a>
                 </div>
                 <div class="navbar-center hidden lg:flex">
                     <ul class="menu menu-horizontal p-0">
