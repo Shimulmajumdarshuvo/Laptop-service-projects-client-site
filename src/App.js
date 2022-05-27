@@ -8,6 +8,8 @@ import Login from './Pages/Home/Login/Login';
 import SignUp from './Pages/Home/Login/SignUp';
 import Blogs from './Pages/Blogs/Blogs';
 import NotFound from './Pages/Home/NotFound/NotFound';
+import Purchase from './Pages/Purchase/Purchase';
+import RequireAuth from './Pages/Home/Login/RequireAuth';
 
 function App() {
   return (
@@ -15,6 +17,14 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home></Home>} />
+        <Route path='/service/:serviceId' element={
+          <RequireAuth>
+
+            <Purchase></Purchase>
+
+          </RequireAuth>
+
+        }></Route>
         <Route path="/about" element={<About></About>} />
         <Route path="/blogs" element={<Blogs></Blogs>} />
         <Route path="login" element={<Login />} />

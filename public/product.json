@@ -1,34 +1,34 @@
 [
     {
         "id": "27cf3",
-        "description": "Apple MacBook Air 13.3-Inch Retina Display 8-core Apple M1 chip with 8GB RAM, 256GB SSD (MGN63) Space Gray.Apple's thinnest, lightest notebook, completely transformed by the Apple M1 chip. CPU speeds up to 3.5x faster. GPU speeds up to 5x faster. Our most advanced Neural Engine for up to 9x faster machine learning. The longest battery life ever in a MacBook Air. ",
-        "name": "Apple MacBook",
-        "price": 95000,
+        "description": " This i5-9500 Processor comes with a Intel UHD Graphics 630 graphics. This 9th gen Coffee Lake microarchitecture is manufactured with the 14nm process that comes with six cores but lacks in HyperThreading. ",
+        "name": "Intel 9th Gen Core i5-9500 Processor",
+        "price": 5000,
         "orderQuantity": 950,
         "availableQuantity": 95000,
-        "img": "https://www.startech.com.bd/image/cache/catalog/laptop/apple/macbook-air/MGN73/macbook-mgn73Zp-a-500x500.jpg"
+        "img": "https://www.startech.com.bd/image/cache/catalog/processor/intel/i5-9500/i5-9500-0110-228x228.jpg"
     },
     {
         "id": "6add9d",
-        "description": "The Panasonic Lumix DC-G100 is a 20.3MP 4K Mirrorless Digital Camera that comes with a 12-32mm Lens. It features Superb-quality 4K/30p and FHD/60p video, easy smartphone connection, and other creative functions. The exceptional performance and portability of the LUMIX G100 let you capture fleeting moments in crystal-clear 4K photo and video.",
-        "name": " Mirrorless Digital Camera ",
-        "price": 71000,
+        "description": "DeepCool ICE EDGE MINI FS V2.0 CPU Air Cooler is AMD AM4 Ready. (NOTE: Refer to FM2+/ FM2/ FM1/ AM3+/ AM3/ AM2+/ AM2 for the manuals). It is equipped with multiple clips to support Intel LGA1155/ 1156/ 775 ",
+        "name": " DeepCool ICE EDGE MINI FS V2.0 CPU Air Cooler ",
+        "price": 7000,
         "orderQuantity": 1000,
         "availableQuantity": 98000,
-        "img": "https://www.startech.com.bd/image/cache/catalog/camera/mirriorless/panasonic/lumix-g100/g100-02-500x500.jpg"
+        "img": "https://www.startech.com.bd/image/cache/catalog/cpu-cooler/deepcool/ice-edge-mini-fs-v2-0/ice-edge-mini-fs-v2-0-228x228.jpg"
     },
     {
         "id": "c6cb80a",
-        "description": "Razer KRAKEN X 7.1 Gaming Headset comes with Ultra-light at just 250g and ultra-immersive with 7.1 surround sound, Sit tight and play for hours. This headset is comes equipped with 7.1 surround sound software so you can experience accurate positional audio when gaming and able to pick up the direction of where the action is coming.",
-        "name": "Gaming Headset",
+        "description": "The Toshiba DT01ABA100V is a 1TB Surveillance Hard Drive that is suitable for video editing, set-top-box (STB), digital video recorders (DVR), and network video recorders (NVR) applications where large capacity, low power",
+        "name": "Toshiba DT01ABA100V 1TB Surveillance Hard Drive",
         "price": 5000,
         "orderQuantity": 850,
         "availableQuantity": 134000,
-        "img": "https://www.startech.com.bd/image/cache/catalog/headphone/razer/kraken-x/kraken-x-1-500x500.jpg"
+        "img": "https://www.startech.com.bd/image/cache/catalog/hdd/toshiba/dt01aba100v/dt01aba100v-500x500.jpg"
     },
     {
         "id": "f54a476",
-        "description": " Features sturdy components and completely smooth power delivery to the CPU. Plus, it offers unmatched overclocking capabilities and enhanced performance with the lowest temperature for advanced gamers as well. ASRock B550M supports the next generation PCI Express 4.0 M.2 SSDs, it is capable of perform twice the speed compared.",
+        "description": " Features sturdy components and completely smooth power delivery to the CPU. Plus, it offers unmatched overclocking capabilities and enhanced performance with the lowest temperature for advanced gamers as well. .",
         "name": "AMD Motherboard",
         "price": 4000,
         "orderQuantity": 1230,
@@ -37,7 +37,7 @@
     },
     {
         "id": "4a0090e7",
-        "description": "The Antec NX240 Mid Ttower Gaming Case effortlessly combines with a bevy of in-demand features, like - USB 3.0 connectivity, ample storage drive bays, room for expansion, and includes four ARGB LED fans in both front and rear. This case comes with support for up to a 240 mm liquid cooling radiator in front.",
+        "description": "The Antec NX240 Mid Ttower Gaming Case effortlessly combines with a bevy of in-demand features, like - USB 3.0 connectivity, ample storage drive bays, room for expansion, and includes four ARGB LED .",
         "name": "Mid Tower Gaming Case",
         "price": 4250,
         "orderQuantity": 1290,
@@ -46,11 +46,11 @@
     },
     {
         "id": "0aj76ee",
-        "description": "The new Dual Monitor Arm Desk Mount comes with Dual Monitor Arm Desk Mount with Gas Spring Height Adjustment and Full Motion Capability. You can Easily adjusts to support an ergonomically correct workstation; sit more comfortably  ",
-        "name": " Tower Gaming ",
-        "price": 1555,
+        "description": "Colorful GeForce GT730K 2GD3-V 2GB Graphics Card comes with Manufacturing Process 28nm, CUDA Cores 384, Core Clock 900, Memory Clock 1800 and Memory Size 2GB. This graphics card featured with Memory Bus Width 64bit",
+        "name": " Colorful GeForce GT730K 2GD3-V 2GB Graphics Card ",
+        "price": 4555,
         "orderQuantity": 1500,
         "availableQuantity": 156300,
-        "img": "https://www.startech.com.bd/image/cache/catalog/wall-mount/dual-monitor-m8-arm-desk-mount-500x500.jpg"
+        "img": "https://www.startech.com.bd/image/cache/catalog/graphics-card/colorful/gt730k-2gd3-v/gt730k-2gd3-v-001-228x228.jpg"
     }
 ]

@@ -1,9 +1,17 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Card = ({ service }) => {
+    const { _id, name, img, price, availableQuantity, orderQuantity, description, } = service;
 
 
-    const { name, img, price, availableQuantity, orderQuantity, description, } = service;
+    const navigate = useNavigate();
+
+
+    const navigateToServiceDetail = id => {
+        navigate(`/service/${id}`);
+    }
+
     return (
         <div className="card lg:max-w-lg bg-base-100 shadow-xl">
             <div className="card-body text-center">
@@ -15,12 +23,22 @@ const Card = ({ service }) => {
                 <h2 className="text-xl font-bold ">Price :${price}</h2>
 
 
-                <div className="card-actions justify-center">
+
+
+                <div className="card-actions justify-end">
                     <label
+
+
+
                         className="btn btn-sm btn-secondary text-white uppercase bg-gradient-to-r from-secondary to-primary"
+                        onClick={() => navigateToServiceDetail(_id)}
                     >Purchase</label>
                 </div>
+
+
             </div>
+
+
         </div>
     );
 };
