@@ -11,7 +11,7 @@ const Profile = () => {
                 background: `url(${img})`
             }}
                 className='flex justify-center items-center'>
-                <img className='m-24' src={images} alt="" />
+                <img className='m-12' src={images} alt="" />
                 <div className='flex-1 p-5'>
                     <h3 className='text-xl text-primary py-3'>Personal Information</h3>
                     <h2 className='text-3xl text-white'>I am Shimul Majumdar Shuvo</h2>
@@ -47,9 +47,29 @@ const Profile = () => {
                     <h2>Mongo DB</h2>
                     <progress class="progress progress-info w-56" value="60" max="100"></progress>
 
+
+
+
+
+                    <div>
+                        <div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
+                            <div class="collapse-title text-xl font-medium">
+                                My Project live link.
+                            </div>
+                            <div class="collapse-content">
+                                <p>Tech BD live link<link rel="stylesheet" href="{https://tech-bd-abf2a.web.app}" /></p>
+                                <link rel="stylesheet" href="https://tech-bd-abf2a.web.app" />
+
+                                https://tech-bd-abf2a.web.app
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
+
+
 
         </div>
     );

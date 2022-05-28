@@ -1,98 +1,170 @@
-import React, { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { Link, useParams } from 'react-router-dom';
-import PurchaseForm from './PurchaseForm';
-
+import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-
-import { ToastContainer, toast } from 'react-toastify';
-import axios from 'axios';
+import { useForm } from 'react-hook-form';
+import { useQuery } from 'react-query';
+import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
+import Loading from '../Shared/Loading';
+
+
 
 const Purchase = () => {
-    const { id } = useParams();
-    const [tool, setTool] = useState({});
-    const { img, name, availableQuantity, price, description
-        , orderQuantity
-        , _id } = tool;
-    const { register, handleSubmit, formState: { errors }, trigger, reset } = useForm();
-    const [quantity, setQuantity] = useState(orderQuantity);
+    const { serviceId } = useParams();
     const [user] = useAuthState(auth);
-
-    //handle quantity change
-    const handleQuantity = e => {
-        e.preventDefault();
-        const inputQuantity = e.target.quantity.value;
-        if (!inputQuantity) {
-            toast.error('Give the quantity value')
-        }
-        else if (inputQuantity > availableQuantity) {
-            toast.error(`Sorry ${user.displayName} !! We dont have enough quantity`);
-        } else if (inputQuantity < orderQuantity) {
-            toast.error(`Sorry ${user.displayName} !!You have to order Minimum  quantity  ${orderQuantity}`);
-        } else {
-
-            setQuantity(inputQuantity)
-
-        }
-        e.target.reset()
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: { errors },
+    } = useForm();
+    const url = `https://guarded-thicket-28793.herokuapp.com/service/${serviceId}`;
+    const { data: tool, isLoading } = useQuery((['tool', serviceId]), () => fetch(url).then(res => res.json()))
+    if (isLoading) {
+        return <Loading></Loading>
     }
+    const {
+        price,
+        availableQuantity,
+        orderQuantity,
+        name,
+        img,
+        description,
+    } = tool;
 
-    //handle submit
-    const handleSubmitParam = (data, e) => {
-        const userName = user?.displayName;
-        const userInput = {
-            userName,
-            email: user?.email,
-            number: data?.number,
-            address: data?.address,
-            quantity: quantity,
-            price: quantity * price,
-            productName: name,
-            img: img,
-        }
+    const onSubmit = (data) => {
 
-        console.log(userInput);
-        axios.post(`http://localhost:5000/order`, userInput)
-            .then(response => {
-                const { data } = response;
-                if (data.insertedId) {
-                    toast.success('Your order is booked')
-                    e.target.reset()
+        const quantity = parseInt(data.quantity);
+        if (orderQuantity > quantity || quantity > availableQuantity) {
+            toast.error(
+                `Order Quantity minimum ${orderQuantity} and less than ${availableQuantity}`,
+                {
+                    position: toast.POSITION.TOP_CENTER,
                 }
+            );
+            return;
+
+        } else {
+            const order = {
+                purchaseName: name,
+                quantity: quantity,
+                price: price,
+                img: img,
+                userName: user?.displayName,
+                email: user?.email,
+                address: data.address,
+                phone: data.phone,
+            };
+
+            fetch(`https://guarded-thicket-28793.herokuapp.com/service`, {
+                method: "POST",
+                headers: {
+                    'content-type': 'application/json',
+                },
+                body: JSON.stringify(order)
             })
-
-
+                .then(res => res.json())
+                .then(result => {
+                    reset()
+                    console.log(result);
+                })
+        }
     }
-
-    useEffect(() => {
-        fetch(`http://localhost:5000/service/${id}`)
-            .then(res => res.json())
-            .then(data => setTool(data))
-    }, [id])
     return (
-        <div className="card lg:card-side bg-base-100 shadow-xl container mx-auto mb-20 py-16 mt-10">
-            <div className='md:w-1/2 md:px-10'>
-                <figure><img className='w-2/3' src={img} alt="Album" /></figure>
-                <h2 className="card-title">{name}</h2>
-                <p>{description}</p>
-                <p>Price: ${price}</p>
-                <p>Stock: {availableQuantity}</p>
-                <p>minimum-order: {orderQuantity}</p>
-                <form onSubmit={handleQuantity}>
-                    <input type="text" placeholder="Quantity" name='quantity' className="input input-bordered input-secondary w-full max-w-xs"
-                        required=""
-                    />
-                    <button type='submit' className=" text-white bg-gradient-to-r from-primary to-secondary border-2 border-secondary hover:border-2 hover:border-primary hover:bg-gradient hover:from-white hover:to-white hover:text-primary transition-all transition-duration:150ms font-medium hover:font-medium px-5 py-[10px] rounded-md ml-2">Order</button>
+        <div>
+            <div class="card w-96 mx-auto bg-base-100 shadow-xl">
+                <figure><img src={img} alt="Shoes" /></figure>
+                <div class="card-body">
+                    <h2 class="card-title">
+                        {name}
+                    </h2>
+                    <p>{description}</p>
+                    <p>Price :${price}</p>
+                    <p>Minimum Order Quantity :${orderQuantity}</p>
+                    <p>Available Quantity :${availableQuantity}</p>
+
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="card w-96 my-4 mx-auto bg-base-100 shadow-xl">
+                <h2>Purchase Now Your Parst </h2>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <div>
+                        <label className='label'>
+                            <span className='label-text'>Email</span>
+                            <input type="email" value={user?.email} disabled className='input input-bordered w-full max-w-xs' />
+                        </label>
+                    </div>
+                    <div>
+                        <label className='label'>
+                            <span className='label-text'>Name</span>
+                            <input type="text" value={user?.displayName} disabled className='input input-bordered w-full max-w-xs' />
+                        </label>
+                    </div>
+                    <div>
+                        <label className='label'>
+                            <span className='label-text'>Quantity</span></label>
+                        <input type="number"
+                            defaultValue={orderQuantity}
+                            placeholder="Enter Quantity"
+                            className='input input-bordered w-full max-w-xs'
+                            {...register("quantity", {
+                                required: {
+                                    value: true,
+                                    message: "Quantity is Required"
+                                }
+                            })} />
+                        <label className=' label text-left'>
+                            {errors.quantity?.type === "required " && (
+                                <span className='label-text-alt text-error'>
+                                    {errors.quantity.message}
+                                </span>
+                            )
+
+
+                            }
+                        </label>
+                        <div className='for-control w-full max-w-x5'>
+                            <label className='label'>
+                                <span className='label-text'>Address</span>
+
+                            </label>
+                            <input type="text" placeholder='Your Address' className=' input input-bordered w-full max-w-xs' {
+                                ...register("address")
+                            } />
+                        </div>
+
+
+                        <div className='for-control w-full max-w-x5'>
+                            <label className='label'>
+                                <span className='label-text'>Phone</span>
+
+                            </label>
+                            <input type="text" placeholder='Phon Number' className=' input input-bordered w-full max-w-xs' {
+                                ...register("phone")
+                            } />
+                        </div>
+                        <input className='btn btn-primary capitalize mt-4 font-normal w-full max-w-xs text-white'
+                            type='submit' value="Place Order" />
+
+
+
+
+                    </div>
+
+
+
+
+
                 </form>
             </div>
 
-            <div className="card-body">
 
-
-                <PurchaseForm handleSubmitParam={handleSubmitParam} tool={tool} quantity={quantity}></PurchaseForm>
-
-            </div>
 
         </div>
     );

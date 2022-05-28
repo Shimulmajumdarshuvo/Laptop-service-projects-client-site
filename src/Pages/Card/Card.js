@@ -5,12 +5,11 @@ const Card = ({ service }) => {
     const { _id, name, img, price, availableQuantity, orderQuantity, description, } = service;
 
 
+
     const navigate = useNavigate();
 
 
-    const navigateToServiceDetail = id => {
-        navigate(`/service/${id}`);
-    }
+
 
     return (
         <div className="card lg:max-w-lg bg-base-100 shadow-xl">
@@ -28,10 +27,8 @@ const Card = ({ service }) => {
                 <div className="card-actions justify-end">
                     <label
 
-
-
                         className="btn btn-sm btn-secondary text-white uppercase bg-gradient-to-r from-secondary to-primary"
-                        onClick={() => navigateToServiceDetail(_id)}
+                        onClick={() => navigate(`/service/${_id}`)}
                     >Purchase</label>
                 </div>
 
