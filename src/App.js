@@ -16,6 +16,7 @@ import DashBord from './Pages/DashBord/DashBord';
 import MyOrder from './Pages/DashBord/MyOrder';
 import AddReview from './Pages/DashBord/AddReview';
 import MyProfile from './Pages/DashBord/MyProfile';
+import Profile from './Pages/MyProfile/Profile';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home></Home>} />
+        <Route path='myprofile' element={<Profile></Profile>}></Route>
         <Route path='/service/:serviceId' element={
           <RequireAuth>
 
@@ -31,6 +33,7 @@ function App() {
           </RequireAuth>
 
         }></Route>
+
         <Route path='dashboard' element={
           <RequireAuth>
             <DashBord></DashBord>

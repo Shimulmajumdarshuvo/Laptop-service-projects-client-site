@@ -1,113 +1,98 @@
 import React, { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { Link, useParams } from 'react-router-dom';
+import PurchaseForm from './PurchaseForm';
+
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useParams } from 'react-router-dom';
-import { useForm } from "react-hook-form";
+
+import { ToastContainer, toast } from 'react-toastify';
+import axios from 'axios';
 import auth from '../../firebase.init';
-import { toast } from 'react-toastify';
-import { useQuery } from 'react-query';
-import Loading from '../Shared/Loading';
-
-
-
 
 const Purchase = () => {
-
-    const { serviceId } = useParams();
-
+    const { id } = useParams();
+    const [tool, setTool] = useState({});
+    const { img, name, availableQuantity, price, description
+        , orderQuantity
+        , _id } = tool;
+    const { register, handleSubmit, formState: { errors }, trigger, reset } = useForm();
+    const [quantity, setQuantity] = useState(orderQuantity);
     const [user] = useAuthState(auth);
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    //handle quantity change
+    const handleQuantity = e => {
+        e.preventDefault();
+        const inputQuantity = e.target.quantity.value;
+        if (!inputQuantity) {
+            toast.error('Give the quantity value')
+        }
+        else if (inputQuantity > availableQuantity) {
+            toast.error(`Sorry ${user.displayName} !! We dont have enough quantity`);
+        } else if (inputQuantity < orderQuantity) {
+            toast.error(`Sorry ${user.displayName} !!You have to order Minimum  quantity  ${orderQuantity}`);
+        } else {
 
-    const url = `http://localhost:5000/service/${serviceId}`;
-
-    const { data: service, isLoading } = useQuery(['service', serviceId], () => fetch(url).then(res => res.json()))
-
-    if (isLoading) {
-        return <Loading></Loading>
-    }
-
-
-
-
-
-    const handleBooking = event => {
-        event.preventDefault();
-
-        const booking = {
-            serviceId: service._id,
-            user: user.email,
-            userName: user.displayName,
-
-            // phon: event.target.phon.value,
-            // quantity: event.target.quantity.value
+            setQuantity(inputQuantity)
 
         }
+        e.target.reset()
+    }
 
-        fetch('http://localhost:5000/booking', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(booking)
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.success) {
-                    toast(`booking done`)
-                }
-                else {
-                    toast.error(`Already  booking`)
-                }
+    //handle submit
+    const handleSubmitParam = (data, e) => {
+        const userName = user?.displayName;
+        const userInput = {
+            userName,
+            email: user?.email,
+            number: data?.number,
+            address: data?.address,
+            quantity: quantity,
+            price: quantity * price,
+            productName: name,
+            img: img,
+        }
 
-            });
+        console.log(userInput);
+        axios.post(`http://localhost:5000/order`, userInput)
+            .then(response => {
+                const { data } = response;
+                if (data.insertedId) {
+                    toast.success('Your order is booked')
+                    e.target.reset()
+                }
+            })
 
 
     }
 
-
+    useEffect(() => {
+        fetch(`http://localhost:5000/service/${id}`)
+            .then(res => res.json())
+            .then(data => setTool(data))
+    }, [id])
     return (
-        <div className=''>
-            <div className='card-actions justify-center'>
-
-                <div class="card w-96 bg-base-100 shadow-xl ">
-                    <figure class="px-10 pt-10">
-                        <img src={service.img} alt="Shoes" class="rounded-xl" />
-                    </figure>
-                    <div class="card-body items-center text-center">
-                        <h2 class="card-title">{service?.name}</h2>
-                        <h2 className=" font-bold ">{service?.description}</h2>
-                        <h2 className=" font-bold ">Price :${service?.price}</h2>
-                        <h2 className=" font-bold ">Order Quantity : {service?.orderQuantity}</h2>
-                        <h2 className=" font-bold ">Available Quantity : {service?.availableQuantity}</h2>
-
-
-                    </div>
-                </div>
-            </div>
-
-
-            <br /><br />
-
-            <div>
-
-                <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3 justify-items-center mt-2'>
-
-
-                    <input type="text" name="name" disabled value={user?.displayName || ''} className="input input-bordered w-full max-w-xs" />
-                    <input type="email" name="email" disabled value={user?.email || ''} className="input input-bordered w-full max-w-xs" />
-                    <input type="text" name="phone" placeholder="Phone Number" className="input input-bordered w-full max-w-xs" />
-
-                    <input type="text" placeholder="Your Address" class="input w-full max-w-xs" />
-                    <input type="text" placeholder="Quantity" class="input input-bordered input-accent w-full max-w-xs" />
-                    <input type="submit" value="Buy Now" className="btn btn-secondary w-full max-w-xs" />
+        <div className="card lg:card-side bg-base-100 shadow-xl container mx-auto mb-20 py-16 mt-10">
+            <div className='md:w-1/2 md:px-10'>
+                <figure><img className='w-2/3' src={img} alt="Album" /></figure>
+                <h2 className="card-title">{name}</h2>
+                <p>{description}</p>
+                <p>Price: ${price}</p>
+                <p>Stock: {availableQuantity}</p>
+                <p>minimum-order: {orderQuantity}</p>
+                <form onSubmit={handleQuantity}>
+                    <input type="text" placeholder="Quantity" name='quantity' className="input input-bordered input-secondary w-full max-w-xs"
+                        required=""
+                    />
+                    <button type='submit' className=" text-white bg-gradient-to-r from-primary to-secondary border-2 border-secondary hover:border-2 hover:border-primary hover:bg-gradient hover:from-white hover:to-white hover:text-primary transition-all transition-duration:150ms font-medium hover:font-medium px-5 py-[10px] rounded-md ml-2">Order</button>
                 </form>
-
-
-
-
-
             </div>
 
+            <div className="card-body">
+
+
+                <PurchaseForm handleSubmitParam={handleSubmitParam} tool={tool} quantity={quantity}></PurchaseForm>
+
+            </div>
 
         </div>
     );
