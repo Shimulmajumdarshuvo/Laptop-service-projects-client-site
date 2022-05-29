@@ -65,6 +65,35 @@ const Profile = () => {
                         </div>
                     </div>
 
+                    <div>
+
+
+                        <div class="hero min-h-screen bg-base-200">
+                            <div class="hero-content flex-col lg:flex-row-reverse text-center">
+
+
+                                <div>
+                                    <div className='flex-1 p-5'>
+                                        <h3 className='text-3xl text-primary py-3'>Contact</h3>
+                                        <h2 className='text-4xl my-2 text-black'>Stay connect with us</h2>
+
+                                        <input type="text" placeholder="Your Name" class="input my-2 input-bordered input-primary w-full max-w-xs" />  <br />
+                                        <input type="email" placeholder="Your Email" class="input my-2 input-bordered input-primary w-full max-w-xs" /> <br />
+                                        <input type="phone" placeholder="Your Phone" class="input my-2 input-bordered input-primary w-full max-w-xs" /> <br />
+                                        <textarea class="textarea textarea-info w-full my-2 max-w-xs" placeholder="Address"></textarea> <br />
+
+                                        <button class="btn  btn-success">Submit</button>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
                 </div>
 
             </div>
