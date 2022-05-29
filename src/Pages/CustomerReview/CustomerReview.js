@@ -26,7 +26,7 @@ const CustomerReview = () => {
     const [user] = useAuthState(auth);
     const [admin] = useAdmin(user);
 
-    const url = `http://localhost:5000/reviews`;
+    const url = `https://guarded-thicket-28793.herokuapp.com/reviews`;
     const { data: reviews, isLoading } = useQuery("reviews", () =>
         fetch(url).then((res) => res.json())
     );

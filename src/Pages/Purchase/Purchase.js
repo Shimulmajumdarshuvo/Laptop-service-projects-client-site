@@ -18,7 +18,7 @@ const Purchase = () => {
         reset,
         formState: { errors },
     } = useForm();
-    const url = `http://localhost:5000/service/${serviceId}`;
+    const url = `https://guarded-thicket-28793.herokuapp.com/service/${serviceId}`;
     const { data: tool, isLoading } = useQuery((['tool', serviceId]), () => fetch(url).then(res => res.json()))
     if (isLoading) {
         return <Loading></Loading>
@@ -56,7 +56,7 @@ const Purchase = () => {
                 phone: data.phone,
             };
 
-            fetch(`http://localhost:5000/service`, {
+            fetch(`https://guarded-thicket-28793.herokuapp.com/service`, {
                 method: "POST",
                 headers: {
                     'content-type': 'application/json',
