@@ -62,7 +62,15 @@ const Profile = () => {
 
                                 https://tech-bd-abf2a.web.app
                             </div>
+                            <p>My weeding photography live site  <link rel="stylesheet" href="https://wedding-phographer-projects.web.app/" /></p>
+                            https://wedding-phographer-projects.web.app/
+
                         </div>
+                        <p>
+                            Laptop Ecommerce site <link rel="stylesheet" href="https://timely-tulumba-4088e2.netlify.app/" />
+                            https://timely-tulumba-4088e2.netlify.app/
+                        </p>
+
                     </div>
 
                     <div>
