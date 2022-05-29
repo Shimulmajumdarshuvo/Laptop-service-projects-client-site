@@ -1,5 +1,6 @@
 import React from 'react';
 import Contact from '../Contact';
+import CustomerReview from '../CustomerReview/CustomerReview';
 import ExtraSection from '../ExtraSection/ExtraSection';
 import Product from '../Product/Product';
 import Banner from './Banner';
@@ -12,7 +13,10 @@ const Home = () => {
             <Banner></Banner>
             <NavBanner></NavBanner>
             <Product></Product>
+
+            <CustomerReview></CustomerReview>
             <ExtraSection></ExtraSection>
+
             <Contact></Contact>
             <Footer></Footer>
         </div>

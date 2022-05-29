@@ -57,19 +57,27 @@ const Profile = () => {
                                 My Project live link.
                             </div>
                             <div class="collapse-content">
-                                <p>Tech BD live link<link rel="stylesheet" href="{https://tech-bd-abf2a.web.app}" /></p>
+                                <p>1. Tech BD live link<link rel="stylesheet" href="{https://tech-bd-abf2a.web.app}" /></p>
                                 <link rel="stylesheet" href="https://tech-bd-abf2a.web.app" />
 
                                 https://tech-bd-abf2a.web.app
                             </div>
-                            <p>My weeding photography live site  <link rel="stylesheet" href="https://wedding-phographer-projects.web.app/" /></p>
-                            https://wedding-phographer-projects.web.app/
+                            <div>
+                                <p> 2 .My weeding photography live site  <link rel="stylesheet" href="https://wedding-phographer-projects.web.app/" /></p>
+                                https://wedding-phographer-projects.web.app/
+                            </div>
+
+
+                            <div>
+                                <p>
+                                    3. Laptop Ecommerce site <link rel="stylesheet" href="https://timely-tulumba-4088e2.netlify.app/" />
+
+                                </p>
+                                https://timely-tulumba-4088e2.netlify.app/
+                            </div>
 
                         </div>
-                        <p>
-                            Laptop Ecommerce site <link rel="stylesheet" href="https://timely-tulumba-4088e2.netlify.app/" />
-                            https://timely-tulumba-4088e2.netlify.app/
-                        </p>
+
 
                     </div>
 

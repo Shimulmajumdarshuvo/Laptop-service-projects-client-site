@@ -92,7 +92,7 @@ const Purchase = () => {
 
 
             <div class="card w-96 my-4 mx-auto bg-base-100 shadow-xl">
-                <h2>Purchase Now Your Parst </h2>
+                <h2>Purchase Now Your Parts </h2>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div>
                         <label className='label'>
