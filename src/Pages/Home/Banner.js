@@ -1,10 +1,11 @@
 import React from 'react';
+import './Banner.css'
 
 const Banner = () => {
     return (
         <div>
-            <div class="carousel w-full">
-                <div id="item1" class="carousel-item w-full">
+            <div class="carousel w-full ">
+                <div id="item1" class="carousel-item w-full mx-10">
                     <img src=" https://techwithtech.com/wp-content/uploads/featured_laptop_parts.jpg" class="h-96 w-full" />
                 </div>
                 <div id="item2" class="carousel-item w-full">

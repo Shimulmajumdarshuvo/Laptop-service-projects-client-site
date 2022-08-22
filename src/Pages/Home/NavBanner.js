@@ -1,14 +1,14 @@
 import React from 'react';
-
+import './NavBanner.css';
 const NavBanner = () => {
     return (
         <div>
-            <div class="hero min-h-screen">
-                <div class="hero-content flex-col lg:flex-row-reverse">
-                    <img src="https://techwithtech.com/wp-content/uploads/featured_laptop_parts.jpg" class="max-w-sm rounded-lg shadow-2xl" />
+            <div class="hero min-h-screen navbarHead">
+                <div class="hero-content flex-col lg:flex-row-reverse heroHead">
+                    <img src="https://techwithtech.com/wp-content/uploads/featured_laptop_parts.jpg" class="max-w-sm rounded-lg " />
                     <div>
                         <h1 class="text-5xl font-bold">Main features of laptop</h1>
-                        <p class="py-6">The parts of laptop include display screen, keyboard, base panel, <br />
+                        <p class="py-6 px-1">The parts of laptop include display screen, keyboard, base panel, <br />
                             top panel, Cooling Fan, RAM, hard disk, palm rest assembly, battery, hinges, speaker, <br />
                             optical drive, antenna etc. Introduction: As we know laptop is most common <br /> computing
                             device used around the world due to its portable nature.</p>
