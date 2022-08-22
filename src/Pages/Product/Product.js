@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../Card/Card';
+import './Product.css';
 
 
 const Product = () => {
@@ -12,7 +13,7 @@ const Product = () => {
     }, [])
     return (
         <div>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 product-card'>
 
                 {
                     services.slice(0, 6).map(service => <Card
