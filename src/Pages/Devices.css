@@ -1,0 +1,94 @@
+.Trainer-service {
+    background: #dde1e7;
+    text-align: center;
+    padding: 14px 0;
+}
+
+.Trainer-service h1 {
+    color: rgb(1, 24, 32);
+    font-size: 50px;
+}
+
+.BestTrainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+    margin: 0 10%;
+
+    position: relative;
+}
+
+.contents {
+    position: relative;
+    overflow: hidden;
+    box-shadow: -3px -3px 7px #fffbfb, 3px 3px 5px rgba(94, 104, 121, .288);
+}
+
+.contents img {
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+
+}
+
+
+.titles span {
+    display: block;
+
+    margin: 3.5px;
+    border-radius: 6px;
+    padding: 5px 7px;
+    font-size: 22px;
+    color: rgb(1, 8, 44);
+
+    background: #dde1e7;
+    box-shadow: inset -3px -3px 7px #ffffff73, inset 3px 3px 5px rgba(94, 104, 121, .288);
+
+
+
+
+
+    text-align: center;
+
+    opacity: 0;
+    transition: 1s;
+    cursor: pointer;
+}
+
+.contents:hover .titles span {
+    opacity: 1;
+}
+
+.titles span:hover {
+    color: rgb(219, 243, 243);
+    background: #0c1f34;
+    cursor: pointer;
+    box-shadow: -3px -3px 7px #fffffff3, 3px 3px 5px rgba(219, 17, 111, 0.13);
+
+}
+
+.BestTrainer .contents:hover img {
+    transform: scale(.9);
+    transition: transform 1.5s;
+}
+
+@media only screen and (max-width:860px) {
+    .BestTrainer {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 30px;
+
+
+    }
+
+}
+
+@media only screen and (max-width:560px) {
+    .BestTrainer {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        margin: 10px 10%;
+
+    }
+
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import './Card.css';
 
 const Card = ({ service }) => {
     const { _id, name, img, price, availableQuantity, orderQuantity, description, } = service;
@@ -12,7 +13,7 @@ const Card = ({ service }) => {
 
 
     return (
-        <div className="card lg:max-w-lg bg-base-100 shadow-xl">
+        <div className="card lg:max-w-lg bg-base-100 shadow-xl  product-card">
             <div className="card-body text-center">
                 <img src={img} alt="" />
                 <h2 className="text-xl font-bold text-secondary">{name}</h2>
